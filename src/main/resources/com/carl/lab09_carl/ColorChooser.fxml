@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<GridPane hgap="8.0" prefHeight="-1.0" prefWidth="-1.0"
+          xmlns="http://javafx.com/javafx/22"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="ColorChooserController">
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+
+   <columnConstraints>
+      <!-- Leftmost column: labels, right-aligned -->
+      <ColumnConstraints halignment="RIGHT" prefWidth="-1.0" />
+      <!-- Sliders -->
+      <ColumnConstraints prefWidth="-1.0" />
+      <!-- TextFields -->
+      <ColumnConstraints prefWidth="-1.0" />
+      <!-- Rightmost column: Circle and Rectangle, centered -->
+      <ColumnConstraints halignment="CENTER" prefWidth="-1.0" />
+   </columnConstraints>
+
+   <rowConstraints>
+      <RowConstraints prefHeight="-1.0" />
+      <RowConstraints prefHeight="-1.0" />
+      <RowConstraints prefHeight="-1.0" />
+      <RowConstraints prefHeight="-1.0" />
+   </rowConstraints>
+
+   <children>
+      <!-- Labels -->
+      <Label text="Red" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+      <Label text="Green" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <Label text="Blue" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+      <Label text="Alpha" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+      <!-- Sliders -->
+      <Slider fx:id="redSlider" max="255.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      <Slider fx:id="greenSlider" max="255.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Slider fx:id="blueSlider" max="255.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Slider fx:id="alphaSlider" max="1.0" value="1.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+      <!-- TextFields -->
+      <TextField fx:id="redTextField" prefWidth="50.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+      <TextField fx:id="greenTextField" prefWidth="50.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <TextField fx:id="blueTextField" prefWidth="50.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <TextField fx:id="alphaTextField" prefWidth="50.0" text="1.00" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+
+      <!-- Circle added BEFORE the Rectangle so it sits behind it -->
+      <Circle fill="DODGERBLUE" radius="40.0" stroke="BLACK" strokeType="INSIDE"
+              GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.rowSpan="2147483647" />
+      <Rectangle fx:id="colorRectangle" height="100.0" width="100.0"
+                 GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.rowSpan="2147483647" />
+   </children>
+</GridPane>
